@@ -16,7 +16,7 @@ router = APIRouter(
 )
 
 @router.post('')
-def create_post(request: CommentBase, db: Session = Depends(get_db), current_user: UserAuth = Depends(get_current_user)):
+def create_comment(request: CommentBase, db: Session = Depends(get_db), current_user: UserAuth = Depends(get_current_user)):
     return db_comment.create_comment(db, request)
 
 
@@ -26,7 +26,7 @@ def get_comments(post_id: int, db: Session = Depends(get_db)):
 
 # Delete post
 @router.delete("/{id}")
-def delete_post():
+def delete_comment():
     pass
 # def delete_post(
 #     id: int,
